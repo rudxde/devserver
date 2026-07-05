@@ -1,0 +1,13 @@
+Include /etc/ssh/sshd_config.d/*.conf
+
+Port 24
+PermitRootLogin prohibit-password
+PubkeyAuthentication yes
+AuthorizedKeysFile %h/.ssh/authorized_keys
+ChallengeResponseAuthentication no
+UsePAM no
+X11Forwarding yes
+PrintMotd no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+PasswordAuthentication no
