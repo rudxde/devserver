@@ -147,6 +147,8 @@ build {
       "chmod 644 /root/.scripts/git-aliases.sh /root/.scripts/kustomize.sh",
       "chmod 600 /root/.gitconfig",
       "chmod 644 /etc/profile.d/codeserver.sh",
+      "grep -qxF 'set -g mouse on' /root/.tmux.conf 2>/dev/null || printf 'set -g mouse on\\n' >> /root/.tmux.conf",
+      "chmod 600 /root/.tmux.conf",
       "grep -qxF '[ -f /root/.scripts/index.sh ] && . /root/.scripts/index.sh' /root/.bashrc || printf '\\n[ -f /root/.scripts/index.sh ] && . /root/.scripts/index.sh\\n' >> /root/.bashrc",
     ]
   }

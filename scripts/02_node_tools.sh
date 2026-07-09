@@ -33,12 +33,17 @@ done
 
 npm install -g \
   @bitwarden/cli \
-  @openai/codex \
   pnpm
 
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+
 npm_global_bin="$(npm prefix -g)/bin"
-for bin in bw codex pnpm pnpx; do
+for bin in bw pnpm pnpx; do
   if [ -x "${npm_global_bin}/${bin}" ]; then
     ln -sf "${npm_global_bin}/${bin}" "/usr/local/bin/${bin}"
   fi
 done
+
+if [ -x /root/.local/bin/codex ]; then
+  ln -sf /root/.local/bin/codex /usr/local/bin/codex
+fi

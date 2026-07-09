@@ -6,6 +6,7 @@ Build Hetzner Cloud snapshots for a codeserver VM.
 
 - git
 - tmux
+- bubblewrap
 - Docker Engine + compose plugin
 - Terraform
 - Packer
