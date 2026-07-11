@@ -12,9 +12,9 @@ Check the following path for additional instructions files. Only read its conten
 
 
 ## Nx Monorepo Guidelines
-when running commands from nx, use nx without npx
+when running commands from nx, use nx alias, not npx
 
 when running tests over jest limit the max workers to 50% with --max-workers=50%
 
 when running in parallel (nx affected or run-many), do --parallel=3 and --max-workers=25% to limit the total system load
-when running nx commands set env: NX_ISOLATE_PLUGINS=false NX_DAEMON=false
+nx alias sets env: NX_ISOLATE_PLUGINS=false NX_DAEMON=false
