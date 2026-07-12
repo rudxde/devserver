@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "Installing Node, pnpm, Codex, and Bitwarden CLI"
+echo "Installing Node, pnpm, Codex, Bitwarden CLI, and MCP servers"
 
 : "${NVM_VERSION:?NVM_VERSION is required}"
 : "${NODE_VERSION:?NODE_VERSION is required}"
@@ -31,18 +31,20 @@ for bin in node npm npx corepack; do
   ln -sf "${node_bin}/${bin}" "/usr/local/bin/${bin}"
 done
 
-npm install -g \
-  @bitwarden/cli \
-  pnpm
-
-curl -fsSL https://chatgpt.com/codex/install.sh | sh
-
 npm_global_bin="$(npm prefix -g)/bin"
-for bin in bw pnpm pnpx; do
+npm install -g pnpm
+for bin in pnpm pnpx; do
   if [ -x "${npm_global_bin}/${bin}" ]; then
     ln -sf "${npm_global_bin}/${bin}" "/usr/local/bin/${bin}"
   fi
 done
+
+PNPM_HOME=/usr/local /usr/local/bin/pnpm add -g \
+  @bitwarden/cli \
+  @playwright/mcp@0.0.78 \
+  chrome-devtools-mcp@1.5.0
+
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
 
 if [ -x /root/.local/bin/codex ]; then
   ln -sf /root/.local/bin/codex /usr/local/bin/codex

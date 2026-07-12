@@ -1,0 +1,7 @@
+[mcp_servers.playwright]
+command = "/usr/local/bin/playwright-mcp"
+args = ["--executable-path", "/usr/bin/chromium", "--headless", "--no-sandbox", "--isolated"]
+
+[mcp_servers.chrome-devtools]
+command = "/usr/local/bin/chrome-devtools-mcp"
+args = ["--executablePath", "/usr/bin/chromium", "--headless", "--isolated", "--chromeArg=--no-sandbox", "--chromeArg=--disable-setuid-sandbox"]

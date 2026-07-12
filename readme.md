@@ -7,6 +7,7 @@ Build Hetzner Cloud snapshots for a codeserver VM.
 - git
 - tmux
 - bubblewrap
+- Chromium
 - Docker Engine + compose plugin
 - Terraform
 - Packer
@@ -16,6 +17,8 @@ Build Hetzner Cloud snapshots for a codeserver VM.
 - Node/npm via nvm
 - pnpm
 - Codex CLI
+- Playwright MCP, configured in Codex
+- Chrome DevTools MCP, configured in Codex
 - Bitwarden CLI
 - k9s
 - grill-me agent skill, copied to `/root/.agents/skills/grill-me/SKILL.md`

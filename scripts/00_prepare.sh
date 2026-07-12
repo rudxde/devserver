@@ -10,6 +10,7 @@ apt-get install -y \
   bubblewrap \
   apt-transport-https \
   ca-certificates \
+  chromium \
   curl \
   git \
   gnupg \

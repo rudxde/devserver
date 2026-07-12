@@ -122,6 +122,11 @@ build {
   }
 
   provisioner "file" {
+    source      = "templates/codex/config.toml"
+    destination = "/root/.codex/config.toml"
+  }
+
+  provisioner "file" {
     source      = "templates/scripts/"
     destination = "/root/.scripts"
   }
@@ -143,6 +148,7 @@ build {
       "chmod 600 /root/.ssh/authorized_keys",
       "chmod 600 /root/.agents/skills/grill-me/SKILL.md",
       "chmod 600 /root/.codex/AGENTS.md",
+      "chmod 600 /root/.codex/config.toml",
       "touch /root/.codex/rules/default.rules",
       "grep -qxF 'prefix_rule(pattern=[\"nx\"], decision=\"allow\")' /root/.codex/rules/default.rules || printf 'prefix_rule(pattern=[\"nx\"], decision=\"allow\")\\n' >> /root/.codex/rules/default.rules",
       "chmod 600 /root/.codex/rules/default.rules",
